@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include cabecera.ejs %>
+   
+
+    <h2>Anuncios disponibles</h2>
+    <% anuncios.forEach(anuncio => { %>
+      <p>Nombre: <%= anuncio.nombre %></p> 
+       <p>Precio de venta de <%= anuncio.precio %> € </p>
+       <p>Disponible : <%= anuncio.venta %></p>
+       <p>Fotografia: <%= anuncio.foto %></p>
+       
+    <% }) %>
+  </body>
+</html>
+
