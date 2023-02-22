@@ -9,7 +9,7 @@ router.get('/', async function(req, res, next) {
     const anuncios = await Anuncio.find();
     res.locals.anuncios = anuncios;
 
-    // res.render('index', { title: 'NodeApp' });
+    // res.render('index', { title: 'Nodepop' });
     res.render('index');
 
   } catch (err) {

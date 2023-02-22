@@ -13,7 +13,8 @@
       <p>Nombre: <%= anuncio.nombre %></p> 
        <p>Precio de venta de <%= anuncio.precio %> € </p>
        <p>Disponible : <%= anuncio.venta %></p>
-       <p>Fotografia: <%= anuncio.foto %></p>
+       <p>Fotografia: <img class = 'image' src="../images/<%= anuncio.foto %>"/></p>
+       
        
     <% }) %>
   </body>
