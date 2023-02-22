@@ -12,7 +12,7 @@ router.get('/', async (req, res, next) => {
     // filtros
     const filterByNombre = req.query.nombre;
     const filterByPrecio = req.query.precio;
-    const filterByTag = req.query.tags
+    const filterByTag = req.query.tags;
     // paginación
     const skip = req.query.skip;
     const limit = req.query.limit;
@@ -54,9 +54,6 @@ router.get('/:id', async (req, res, next) => {
 
     const anuncio = await Anuncio.findById(id);
 
-    if (anuncio) {
-      anuncio.saluda();
-    }
 
     res.json({ result: anuncio });
 
