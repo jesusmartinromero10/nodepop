@@ -3,6 +3,7 @@ const router = express.Router();
 const Anuncio = require('../../models/Anuncio');
 
 
+//GET /api/anuncios
 //lista los anuncios
 
 router.get('/', async (req, res, next) => {
@@ -11,7 +12,7 @@ router.get('/', async (req, res, next) => {
     // filtros
     const filterByNombre = req.query.nombre;
     const filterByPrecio = req.query.precio;
-    const filterByTag = req.query.tag
+    const filterByTag = req.query.tags
     // paginación
     const skip = req.query.skip;
     const limit = req.query.limit;

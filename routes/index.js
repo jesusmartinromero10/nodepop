@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Anuncio = require('../models/Anuncio');
+const {query, validationResult} = require('express-validator');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
