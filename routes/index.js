@@ -4,19 +4,44 @@ const Anuncio = require('../models/Anuncio');
 const {query, validationResult} = require('express-validator');
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
+
+
+router.get('/', async (req, res, next) => {
   try {
 
-    const anuncios = await Anuncio.find();
-    res.locals.anuncios = anuncios;
+    // filtros
+    const filterByNombre = req.query.nombre;
+    const filterByPrecio = req.query.precio;
+    const filterByTag = req.query.tags;
+    // paginación
+    const skip = req.query.skip;
+    const limit = req.query.limit;
+    // ordenar
+    const sort = req.query.sort;
+    // selección de campos
+    const fields = req.query.fields;
 
-    // res.render('index', { title: 'Nodepop' });
+
+    const filtro = {};
+
+    if (filterByNombre) {
+      filtro.nombre = filterByNombre;
+    }
+
+    if (filterByPrecio) {
+      filtro.precio = filterByPrecio;
+    }
+
+    if(filterByTag) {
+      filtro.tag = filterByTag;
+    }
+
+    const anuncios = await Anuncio.lista(filtro, skip, limit, sort, fields);
+    res.locals.anuncios = anuncios;
     res.render('index');
 
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 });
-
-
 module.exports = router;
