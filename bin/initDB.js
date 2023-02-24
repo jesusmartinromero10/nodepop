@@ -25,14 +25,14 @@ async function initAnuncios() {
         venta: true,
         precio: 20000,
         foto: 'r1.jpeg',
-        tags: ['motor', 'lifestyle' ]
+        tags: ['motores' ]
       },
 
     {   nombre: 'coche bmw m4',
         venta: true,
         precio: 60442,
         foto: 'm4.jpeg',
-        tags: ['motor', 'lifestyle']
+        tags: ['motores', 'lifestyle']
       },
 
     {

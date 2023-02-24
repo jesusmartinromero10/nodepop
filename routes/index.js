@@ -20,12 +20,13 @@ router.get('/', async (req, res, next) => {
     const sort = req.query.sort;
     // selección de campos
     const fields = req.query.fields;
-
-
+    
+    
     const filtro = {};
-
+    
     if (filterByNombre) {
       filtro.nombre = filterByNombre;
+     
     }
 
     if (filterByPrecio) {
@@ -33,7 +34,7 @@ router.get('/', async (req, res, next) => {
     }
 
     if(filterByTag) {
-      filtro.tag = filterByTag;
+      filtro.tags = filterByTag;
     }
 
     const anuncios = await Anuncio.lista(filtro, skip, limit, sort, fields);
