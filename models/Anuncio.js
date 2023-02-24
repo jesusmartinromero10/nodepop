@@ -11,7 +11,7 @@ const schemaAnuncio = mongoose.Schema({
 });
 
 schemaAnuncio.statics.lista = async function(filtro, skip, limit, sort, fields) {
-    //cojo de filtro la palabra nombre que es la key del objeto
+    //cojo de filtro la palabra nombre que es la key del objeto y la convierto en string
     if(Object.keys(filtro).toString() === 'nombre'){ 
     //busco todos los anuncios que tenemos  
       const aaa = await Anuncio.find()
