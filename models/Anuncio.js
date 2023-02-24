@@ -11,6 +11,8 @@ const schemaAnuncio = mongoose.Schema({
 });
 
 schemaAnuncio.statics.lista = async function(filtro, skip, limit, sort, fields) {
+  try {
+    
     //cojo de filtro la palabra nombre que es la key del objeto y la convierto en string
     if(Object.keys(filtro).toString() === 'nombre'){ 
     //busco todos los anuncios que tenemos  
@@ -33,7 +35,7 @@ schemaAnuncio.statics.lista = async function(filtro, skip, limit, sort, fields) 
       query.sort(sort);
       query.select(fields);
       return query.exec();
-
+  
     }
     else {
       const query = Anuncio.find(filtro); 
@@ -43,7 +45,12 @@ schemaAnuncio.statics.lista = async function(filtro, skip, limit, sort, fields) 
       query.select(fields);
       return query.exec();
     }
+  
+  } catch (error) {
+    next(error)
+    
   }
+};
 
 // crear el modelo de Agente
 const Anuncio = mongoose.model('Anuncio', schemaAnuncio);
