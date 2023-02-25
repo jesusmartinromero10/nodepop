@@ -3,6 +3,14 @@ var router = express.Router();
 const Anuncio = require('../models/Anuncio');
 const {query, validationResult} = require('express-validator');
 
+
+// GET "/tags" Devuelve la lista de los tags permitidos en Nodepop.
+
+router.get("/tags", (req, res, next) => {
+  res.send({tags_permitidos: ["lifestyle", "mobile", "motor", "work"]});
+});
+
+
 /* GET home page. */
 
 
@@ -34,6 +42,11 @@ router.get('/', async (req, res, next) => {
     }
 
     if(filterByTag) {
+      const permitidos = ["lifestyle", "mobile", "motor"]
+      if(!permitidos.includes(filterByTag)){
+        res.send('Los tags permitidos son "lifestyle", "mobile", "motor", "work"')
+      }
+
       filtro.tags = filterByTag;
     }
 

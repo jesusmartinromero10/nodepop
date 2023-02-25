@@ -52,3 +52,9 @@ In the console go to MongoDB folder and:
         ...
 }
 
+
+## GET  Para saber la lista de los tags permitidos
+
+```sh
+/tags
+```

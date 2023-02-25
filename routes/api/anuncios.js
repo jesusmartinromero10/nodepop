@@ -33,6 +33,11 @@ router.get('/', async (req, res, next) => {
     }
 
     if(filterByTag) {
+      const permitidos = ["lifestyle", "mobile", "motor"]
+      if(!permitidos.includes(filterByTag)){
+        res.send('Los tags permitidos son "lifestyle", "mobile", "motor", "work"')
+      }
+
       filtro.tags = filterByTag;
     }
 
