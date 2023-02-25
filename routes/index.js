@@ -42,7 +42,7 @@ router.get('/', async (req, res, next) => {
     }
 
     if(filterByTag) {
-      const permitidos = ["lifestyle", "mobile", "motor"]
+      const permitidos = ["lifestyle", "mobile", "motor", "work"]
       if(!permitidos.includes(filterByTag)){
         res.send('Los tags permitidos son "lifestyle", "mobile", "motor", "work"')
       }

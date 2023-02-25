@@ -72,9 +72,12 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try {
-  
+      const permitidos = ["lifestyle", "mobile", "motor", "work"]
       const anuncioData = req.body;
-  
+      if(!permitidos.includes(anuncioData.tags)){
+        res.json({ error : `Los tags permitidos en los anuncios son ${permitidos}`})
+      }else{
+      
       // creamos una instancia de Anuncio en memoria
       const anuncio = new Anuncio(anuncioData);
   
@@ -82,7 +85,7 @@ router.post('/', async (req, res, next) => {
       const anuncioGuardado = await anuncio.save();
   
       res.json({ result: anuncioGuardado });
-  
+      }
     } catch (error) {
       next(error);
     }
