@@ -2,6 +2,7 @@
 
 const Anuncio = require('../models/Anuncio');
 const connection = require('../lib/connectMongoose');
+const Usuario = require('../models/Usuarios')
 
 main().catch(err => console.log('Hubo un error', err));
 
@@ -9,6 +10,9 @@ async function main() {
 
   // inicializamos colección de anuncios
   await initAnuncios();
+
+  // inicializamos colección de usuarios
+  await initUsuarios();
 
   connection.close();
 
@@ -68,4 +72,19 @@ async function initAnuncios() {
       }
   ]);
   console.log(`Creados ${inserted.length} anuncios`);
+}
+
+
+//creamos iniciacion usuarios
+async function initUsuarios() {
+  // borrar todos los documentos de usuarios
+  const deleted = await Usuario.deleteMany();
+  console.log(`Eliminados ${deleted.deletedCount} usuarios.`);
+
+  // crear usuarios iniciales
+  const inserted = await Usuario.insertMany([
+    { email: 'user@example.com', password: await Usuario.hashPassword('1234')},
+    
+  ]);
+  console.log(`Creados ${inserted.length} usuarios.`);
 }
