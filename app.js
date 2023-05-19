@@ -36,7 +36,7 @@ const loginController = new LoginController();
 
 //rutas del API
 
-app.use("/api/anuncios", require("./routes/api/anuncios"));
+app.use("/api/anuncios",jwtAuthMiddleware, require("./routes/api/anuncios"));
 app.post("/api/login", loginController.postAPI);
 
 // catch 404 and forward to error handler
