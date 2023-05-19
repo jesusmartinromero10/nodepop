@@ -8,12 +8,12 @@
     <% include cabecera.ejs %>
    
 
-    <h2>Anuncios disponibles</h2>
+    <h2><%= __('Advertisements Aviable') %></h2>
     <% anuncios.forEach(anuncio => { %>
-      <p>Nombre: <%= anuncio.nombre %></p> 
-       <p>Precio de venta de <%= anuncio.precio %> € </p>
-       <p>Disponible : <%= anuncio.venta %></p>
-       <p>Fotografia: <img class = 'image' src="../images/<%= anuncio.foto %>"/></p>
+      <p><%= __('Name') %>: <%= anuncio.nombre %></p> 
+       <p><%= __('Sale Price') %>: <%= anuncio.precio %> € </p>
+       <p><%= __('Aviable') %> : <%= anuncio.venta %></p>
+       <p><%= __('Photography') %>: <img class = 'image' src="../images/<%= anuncio.foto %>"/></p>
        
        
     <% }) %>

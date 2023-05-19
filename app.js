@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var LoginController = require("./controller/LoginController");
 var jwtAuthMiddleware = require("./lib/jwtAuthMiddleware");
+const i18n = require('./lib/i18nConfigure')
 require('dotenv').config()
 
 var indexRouter = require("./routes/index");
@@ -21,16 +22,17 @@ app.locals.title = "Nodepop";
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(i18n.init)
 
 // rutas website
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use('/chance-locale', require('./routes/chance-locale'))//para navegar al cambio de idiomas
 
 const loginController = new LoginController();
 

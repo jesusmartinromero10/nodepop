@@ -1,1 +1,5 @@
-<h1>Pagina segunda mano: <%= title %></h1>
+<% getLocales().forEach(locale =>{%>
+    <a href="/chance-locale/<%= locale %>"><%= locale %></a>&nbsp;
+    <% }) %>
+
+<h1><%= __('Second Hand Page') %>: <%= title %></h1>
