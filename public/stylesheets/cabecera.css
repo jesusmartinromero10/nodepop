@@ -4,6 +4,15 @@
     color: #333;
     margin-right: 5px;
   }
+
+  .a-lenguajes:active {
+    color: red;
+  }
+
+  .a-lenguajes:hover{
+    font-size: 20px;
+  }
+
   
   /* Estilos para el título */
   .tittle-cabecera {
