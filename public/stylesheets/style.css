@@ -27,6 +27,9 @@ a {
 .ad-image {
   flex-basis: 30%;
   margin-right: 20px;
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
 }
 
 .ad-image img {
