@@ -6,3 +6,60 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* Estilos para la lista de anuncios */
+.ad-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ad-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.ad-image {
+  flex-basis: 30%;
+  margin-right: 20px;
+}
+
+.ad-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.ad-details {
+  flex-basis: 70%;
+}
+
+.ad-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.ad-price {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ad-description {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.ad-availability {
+  font-size: 16px;
+  color: #999;
+}
+

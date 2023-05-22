@@ -3,20 +3,29 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/cabecera.css' />
+
   </head>
   <body>
     <% include cabecera.ejs %>
    
-
-    <h2><%= __('Advertisements Aviable') %></h2>
+  <h2><%= __('Advertisements Available') %></h2>
+  
+  <ul class="ad-list">
     <% anuncios.forEach(anuncio => { %>
-      <p><%= __('Name') %>: <%= anuncio.nombre %></p> 
-       <p><%= __('Sale Price') %>: <%= anuncio.precio %> € </p>
-       <p><%= __('Aviable') %> : <%= anuncio.venta %></p>
-       <p><%= __('Photography') %>: <img class = 'image' src="../images/<%= anuncio.foto %>"/></p>
-       
-       
+      <li class="ad-item">
+        <div class="ad-image">
+          <img src="../images/<%= anuncio.foto %>" alt="Ad Image">
+        </div>
+        <div class="ad-details">
+          <h3 class="ad-title"><%= __('Name') %>: <%= anuncio.nombre %></h3>
+          <p class="ad-price"><%= __('Sale Price') %>: <%= anuncio.precio %> €</p>
+          <p class="ad-availability"><%= __('Availability') %>: <%= anuncio.venta %></p>
+          <p class="ad-description"><%= __('Photography') %></p>
+         
+        </div>
+      </li>
     <% }) %>
-  </body>
+  </ul>
+</body>
 </html>
-
